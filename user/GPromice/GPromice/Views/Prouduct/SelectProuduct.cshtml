@@ -1,0 +1,108 @@
+﻿@model IEnumerable<GPromice.Product>
+
+@{
+    ViewBag.Title = "prouduct";
+
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="page-header">
+            <h2>Our Producrs <small>trends products</small></h2>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="page-header">
+            <h2>Our Producrs <small>trends products</small></h2>
+            <div class="olContent f1"><h2 style="color:black">search product</h2></div>
+            <div class="olSearch fr">
+                <form method="get" action="/Fillter/Index">
+                    <input type="text" placeholder="Enter Keyword" name="ProductName" class="houseText form-control" />
+
+                    <div class="searchIcon">
+                        <button type="submit" class="searchBtn">
+                            Search
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row product-container">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
+            <div class="thumbnail product-item" style="height:300px">
+
+                <img class="img-responsive" title="click to view Product detail"
+                     style="cursor:pointer;height:160px;width:100%" src="\Content\Images\@item.ProductImage" />
+
+
+                <div class="caption">
+                    <h5> @item.ProductName</h5>
+
+                    <p>  @item.Price</p>
+                    @*<p>Available</p>*@
+                    <form method="post">
+
+
+                        @*@Html.HiddenFor(i=>item.ProductID)*@
+                        <input type="hidden" name="cmd" value="_cart">
+                        <input type="hidden" name="add" value="@item.Price">
+                        <input type="hidden" name="hub_item" value="Floral Print Women's Top">
+                        <input type="hidden" name="amount" value="@item.Quantity">
+                        @*@Url.Action("AddToCartPartial/" + item.ProductID, "Cart")*@
+                        <a href=@Url.Action("AddToCartPartial/" + item.ProductID, "Cart") type="submit" name="submit" id="addtocart" class="btn btn-success text-justify text-white">
+                            Add to Cart
+                        </a>
+                    </form>
+                        @*<span><a href="#" class="btn btn-success" id="addtoCard">Add to Cart</a></span>*@
+                        <div class="product-item-badge">New</div>
+
+
+
+                        
+                    
+              </div> 
+ </div>
+ </div>
+            }
+ </div>
+            
+        
+@section Scripts{
+    <script src="~/Content/jquery.fancybox.js"></script>
+<script>
+    $(function () {
+        $(".fancybox").fancybox();
+
+        $("#addtoCard").click(function (e) {
+            e.preventDefault();
+            $("span.loader").addClass("ib");
+            var url = "~/cart/AddToCartPartial",;
+            $.get(url, {id:@Model.FirstOrDefault().ProductID}, function (data) {
+                $(".ajaxcart").html(data);
+                console.log(data);
+            }).done(function () {
+                $("span.loader").removeClass("ib");
+                $("span.ajaxmsg").addClass("ib");
+                setTimeout(function () {
+                    $("span.ajaxmsg").fadeOut("fast");
+                    $("span.ajaxmsg").removeClass("ib");
+                }, 1000);
+            });
+        });
+    });
+</script>
+}
+
+
+
+
+
+

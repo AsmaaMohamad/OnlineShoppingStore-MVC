@@ -1,0 +1,76 @@
+﻿
+@model IEnumerable <GPromice.VM.Cart.CartVm>
+@{
+    ViewBag.Title = "Cart Details";
+}
+
+<h2>Cart Details</h2>
+@if (ViewBag.Message != null)
+{
+    <h3>@ViewBag.Message</h3>
+}
+else
+{
+
+<table class="table">
+    <tr>
+        <th>
+           ProductName
+        </th>
+        <th>
+         Quantity
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            ProductImage
+        </th>
+        <th>
+            Total
+        </th>
+       
+
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+           <img src="~/Content/Images/@item.ProductImage" alt="CartImage" style="width:100px;height:100px;" />
+        </td>
+       
+        
+        <td>
+            <a href="Incrproduct" data-id="@item.ProductID">+</a>
+            <a href="decproduct" data-id="@item.ProductID">-</a>
+            <a href="Removeproduct" data-id="@item.ProductID">Remove</a>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total)
+        </td>
+    </tr>
+}
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td style="float:left;">Total=</td>
+        <td>@ViewBag.GrandTotal</td><td><a href="/Shopping/shop" class="btn btn-success" style="font-size:20px">Shopping Now</a></td>
+    </tr>
+    
+
+</table>
+}

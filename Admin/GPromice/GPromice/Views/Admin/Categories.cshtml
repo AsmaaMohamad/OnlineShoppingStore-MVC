@@ -1,0 +1,52 @@
+﻿@model IEnumerable<GPromice.Category>
+
+@{
+    ViewBag.Title = "Categories";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+@Styles.Render("~/Content/css/bootstrap.min.css")
+@Styles.Render("~/Scripts/bootstrap.min.css")
+
+@Styles.Render("~/Content/css/Site.css")
+
+<h2>Categories</h2>
+
+<div>
+    <a class="btn btn-info text-justify" href="/Admin/CreateCategory">CreateCategory</a>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CatName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsDelete)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CatName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDelete)
+            </td>
+            <td>
+                @Html.ActionLink("EditCategory", "EditCategory", new { id = item.CatID },new { @class = "btn btn-success" })
+                <span> @Html.ActionLink("DetailsCategory", "DetailsCategory", new { id = item.CatID },new { @class = "btn btn-info" }) </span>
+                <span>  @Html.ActionLink("DeleteCategory", "DeleteCategory", new { id = item.CatID },new { @class = "btn btn-danger" })</span>
+            </td>
+        </tr>
+    }
+
+</table>

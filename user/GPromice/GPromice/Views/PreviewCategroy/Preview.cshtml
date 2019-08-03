@@ -1,0 +1,17 @@
+﻿
+@model IEnumerable<GPromice.Category>
+
+
+<ul style="list-style-type:none" class="nav nav-pills">
+
+
+
+    @foreach (var item in Model)
+
+    {
+        <li><a class="active" style="border-radius:initial;" href="/selectcategory/@item.CatName">@item.CatName</a></li>
+
+    }
+
+</ul>
+

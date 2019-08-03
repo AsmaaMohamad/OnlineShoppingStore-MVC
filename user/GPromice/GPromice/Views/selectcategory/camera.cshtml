@@ -1,0 +1,64 @@
+﻿@model IEnumerable<GPromice.Product>
+
+@{
+    ViewBag.Title = "prouduct";
+
+}
+@{
+    Html.RenderAction("SelectCategory", "Category");
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="page-header">
+            <h2>Our Producrs <small>trends products</small></h2>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="row product-container">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
+            <div class="thumbnail product-item" style="height:300px">
+
+                <img class="img-responsive" title="click to view Product detail"
+                     style="cursor:pointer;height:160px;width:100%" src="\Content\Images\@item.ProductImage" />
+
+
+                <div class="caption">
+                    <h5> @item.ProductName</h5>
+
+                    <p>  @item.Price</p>
+                    @*<p>Available</p>*@
+                    <div class="product-item-badge">New</div>
+                    <form method="post">
+
+
+                        @*@Html.HiddenFor(i=>item.ProductID)*@
+                        <input type="hidden" name="cmd" value="_cart">
+                        <input type="hidden" name="add" value="@item.Price">
+                        <input type="hidden" name="hub_item" value="Floral Print Women's Top">
+                        <input type="hidden" name="amount" value="@item.Quantity">
+                        <a href=@Url.Action("AddToCartPartial/" + item.ProductID, "Cart") type="submit" name="submit" id="addtocart" class="btn btn-success text-justify text-white">
+                            Add to Cart
+                        </a>
+                    </form>
+                    @*<span><a href="#" class="btn btn-success" id="addtoCard">Add to Cart</a></span>*@
+                    <div class="product-item-badge">New</div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+
+
+

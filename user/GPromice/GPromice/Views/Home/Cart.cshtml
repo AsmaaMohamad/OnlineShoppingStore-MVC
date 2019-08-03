@@ -1,0 +1,24 @@
+﻿@model IEnumerable<GPromice.Cart>
+
+<select>
+    @foreach (var item in Model)
+    {
+        <option>
+            <div class="col-md-3">
+                @Html.DisplayFor(modelItem => item.Product.ProductName)
+            </div>
+            <div class="col-md-3">
+                @Html.DisplayFor(modelItem => item.MemberId)
+            </div>
+            <div class="col-md-3">
+                @Html.DisplayFor(modelItem => item.CartStatusId)
+            </div>
+            <div class="col-md-3">
+                @Html.ActionLink("Edit", "Edit", new { id = item.CartId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CartId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CartId })
+            </div>
+        </option>
+    }
+</select>
+

@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/MyMainLayOut.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.intellisense.js"></script>
+    @Styles.Render("~/Content/footercss.css")
+    @Styles.Render("~/Content/cssstyle.css")
+    @Styles.Render("~/Content/slickcss.css")
+    @Styles.Render("~/Content/slicktheme.css")
+    @Styles.Render("~/Content/nouislider.css")
+    @Styles.Render("~/Content/bootstrapcss.css")
+    @Styles.Render("~/Content/navbootstrap.css")
+    @Styles.Render("~/Content/navbootstrapgrid.css")
+
+
+
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/MyMainLayOut.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/Scripts/jsbootstrap.js")
+    @Scripts.Render("~/Scripts/jquerminnn.js")
+    @Scripts.Render("~/Scripts/slickmin.js")
+    @Scripts.Render("~/Scripts/jsmain.js")
+    @Scripts.Render("~/Scripts/nouislidejs.js")
+        @Scripts.Render("~/Scripts/jqueryzoom.js")
+    @Scripts.Render("~/Scripts/jquery-1.10.2.intellisense.jss")
+    @*@Scripts.Render("~/Scripts/newjquery.js")*@
+        
+
+
+</head>
+<body style=" background-color:#c1b9b6;">
+
+    <div class="container" style="font-size:20px">
+        <div class="row" style="background-color:#c1b9b6;font-size:20px">
+            <div class="col-md-6 col-sm-6 col-xs-6" >
+                <div class="logo">
+                    <h1 ><a href="#" style="color:#9b1309">Online <span>Shopping Store</span></a></h1>
+                    <p style="color:#3d1203">My Shop</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                
+               <div class="navbar-collapse collapse">
+                   @*<ul class=" nav navbar-nav">
+                      @Html.Action("CartPartial", "pages");
+                   </ul>*@
+                   <ul class="navbar-collapse collapse navbar-right">
+                       @Html.Action("CartPartial","Cart")
+                   </ul>
+               </div>
+
+            </div>
+                <div class="col-md-3 col-sm-3 col-xs-3" >
+                    <div >
+
+                        @*<ul class="nav nav-pills">*@
+                          @*  <li><a style="border-radius:initial;" href="/Account/Login">login</a></li>*@
+                            @*<li><a style="border-radius:initial;" href="/Account/Register">Register</a></li>*@
+
+                        @*</ul>*@
+                        @Html.Partial("_LoginPartial")
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="row" style="background-color:brown; width:97.4%; margin-left:0.9%">
+
+                <div class="col-md-12">
+                    <div class="nav-menus" >
+
+                        <ul class="nav nav-pills" style="padding-left:150px">
+                            <li ><a style="color:white;" class="active" style="border-radius:initial;" href="/Home/Index">Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <li><a style="color:white;" href="/PreviewCategroy/Preview">Categories</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <li><a style="color:white;" href="/Prouduct/SelectProuduct">product</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <li><a style="color:white;" href="#">About</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+
+            @RenderBody()
+
+            <hr />
+            
+        </div>
+    <footer>
+        <div class="row" style="background-color:brown;color:white; margin:0px; padding:0px">
+            <div class="col-md-12 copyright">
+
+                <div class="col-md-5" >
+                   
+                    <span>
+                        <h1>About Our Website:</h1>
+                        <p>
+                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years,
+                            sometimes by accident, sometimes on purpose (injected humour and the like).
+                    </span>
+                    <br /><br /><br />
+                    <span style=" padding-left:40px; font-size:20px;color:darkgray">&copy; @DateTime.Now.Year - OnlineShopingStore. All right reserved.</span>
+
+                </div>
+                <div class="col-md-4" style="padding-left:120px">
+                    <h1>Contact Numbers:</h1>
+                    <h4>010###########</h4> 
+                    <h4>011###########</h4>
+                    <h4>012###########</h4>
+                    <h4>015###########</h4>
+                    </div>
+                    <div class="col-md-3" style="padding-left:120px">
+                        <h1 style="padding-left:80px">Social:</h1><br />
+                        <ul class="list-unstyled list-social">
+                            <li><a href="#" target="_blank"><i class="fa fa-facebook-square" style="font-size:27px"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" style="font-size:27px"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus" style="font-size:27px"></i></a></li>
+
+                        </ul>
+                    </div>
+                </div>
+        </div>
+
+    </footer>
+
+
+
+  
+
+
+
+                            @Scripts.Render("~/bundles/jquery")
+                            @Scripts.Render("~/bundles/bootstrap")
+                            @RenderSection("scripts", required: false)
+</body>
+</html>

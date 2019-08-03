@@ -1,0 +1,14 @@
+﻿@model IEnumerable<GPromice.Category>
+
+@{
+    ViewBag.Title = "Categories";
+
+}
+
+
+<select>
+    @foreach (var item in Model)
+    {
+        <option>@item.CatName</option>
+    }
+</select>

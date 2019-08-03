@@ -1,0 +1,47 @@
+﻿@model GPromice.VM.Cart.CartVm
+    <br />
+<div >
+    <br />
+    <span style="color:brown">Your cart:</span>&nbsp; @Model.Quantity NumberOfOrder(s) =$@Model.Price
+    <br />
+    <br />
+    @Html.ActionLink("Checkout", "Index")
+</div>
+<br />
+<br />
+<button class="btn btn-success" style="font-size:20px"><a href="/Shopping/shop">Shopping Now</a></button>
+
+@*<div>
+    <h4>Cart</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.ProductName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MemberId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MemberId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CartStatusId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CartStatusId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CartId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@
